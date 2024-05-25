@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" type="text/css" href="./css/main.css">
+	<link rel="icon" href=".\img\stupid_wolf.jpg">
+	<title>5.3. PATRONES DE DISEÑO</title>
+</head>
+<body>
+	<nav class = "sticky">
+		<input type="checkbox" id = "check">
+		<label for = "check" class = checkbtn>
+			<i class = "fas fa-bars"></i>
+		</label>
+		<label class = "logo-nav"><a href="./index.html" title = "Volver al inicio"> Unidad 5</a></label>
+		<ul>
+			<li><a href="./5_1.html" title="Conceptos generales">5.1</a></li>
+			<li><a href="./5_2.html"  title = "Tipos de servicios en la nube">5.2</a></li>			
+			<li><a href="./5_3.html" class="active" title="Patrones de diseño">5.3</a></li>
+			<li><a href="./5_4.html" title="Estándares en servicios">5.4</a></li>	
+			<li><a href="./5_5.html" title="Plataformas tecnológicas">5.5</a></li>	
+			<li><a href="./5_6.html" title="Seguridad e interoperabilidad">5.6</a></li>		
+		</ul>
+	</nav>
+
+	<br><br><br><br><br><br><br>
+	<div class = "contenedor-1">
+		<h2 >5.3. PATRONES DE DISEÑO</h2>
+
+		<div class="box">
+			<p>
+				Los patrones de administración estan relacionados a todos los patrones que implican la administración de los sistemas, ya que en la nube, estas se ejecutan en entornos de infraestructura donde no se tiene quizas el control total de misma o incluso del hardware y software de sistemas operativos. Hacen referencia a la administración de las mismas, tanto en parte de su implementación como a la actualización, mantenimiento, soporte y monitoreo. Estos patrones ayudan a cómo exponer la información necesaria para las aplicaciones y sus entornos y a como ayudar a los sistemas sin tener que generar costos y esfuerzos extras o fuera de la nube.
+			</p>
+		</div>
+
+		<div class = "box">
+			<table class = "tabla-tipos-servicios">
+				<tr>
+				<th>Patrón</th>	
+				<th>Descripción</th>
+				</tr>
+
+				<tr>
+					<td>Patrón embajador (Ambassador pattern)</td>
+					<td>Permite diseñar determinados factores asociados a manejadores o complementos de las aplicaciones dentro de su adminstración con el contexto de los ambientes, como por ejemplo, el logging, monitoreo, seguridad, tracing, transacciones, permisos, notificaciones de errores, etc. Se aplica para separar cuestiones ajenas a la funcionalidad de la aplicación en si, que los desarrolladores no deberían considerar para poder hacer un desarrollo, pero que son indispensables para mantener en funcionamiento y disponibilidad la aplicación o alertar si ocurren problemas en la misma que dificultarían su funcionamiento.</td>
+				</tr>
+
+				<tr>
+					<td>Patrón de capa anti-corrupción (Anti-corruption layer pattern)</td>
+					<td>Es la base de DDD (Domain Driven Design). Es un patrón que permite diseñar subsistemas para evitar la dependencia entre ellos. Con esto se garantiza que al dividir las aplicaciones o arquitectura en subsistemas y diseñando la forma de comunicación entre ellos a modo de fachadas o adaptadores evitamos el acoplamiento y la dependencia. Habitualmente también sirve para diseñar formas de comunicación entre sistemas legacy o que se están migrando. Este patrón se puede implementar con adaptadores, fachadas o con capas de aplicación que comuniquen distintas capas y subsistemas. En la administración sirven para separar las distintas tecnologías utilizadas para aislar el mantenimiento y gestión de cada una de ellas sin impactar en el resto.</td>
+				</tr>		
+				<tr>
+					<td>Patrón de configuración externa (External configuration pattern)</td>
+					<td>Este patrón implica que toda configuración de las aplicaciones deben encontrarse fuera de las mismas, tanto las generales como las particulares, para atomizar e independizarlas de la implementación como del mantenimiento y gestión. Esto permite cambiar configuraciones sin necesidad de implementar o desplegar configuraciones junto a la aplicación y a su vez hacer cambios necesarios de configuración para los componentes sin necesidad de volver a desplegar. Incluso impacta en muchas y distintas instancias. La centralización del despliegue de grupos de configuración también es una practica para implementar cambios a gran escala, sin tener que aplicar uno por uno en los particulares. También permite manipular configuraciones comunes desde un solo punto, pudiendose heredar en otros casos, sin necesidad de tener configuraciones generales en cada una de las aplicaciones. También permite aislar las configuraciones de servicios a esos servicios sin necesidad de ser indicados en la configuración de la aplicación (como por ejemplo con servicios de base de datos, autenticación, etc)</td>
+				</tr>
+				<tr>
+					<td>Patrón de agregado de puerta de enlace (Gateway aggregation pattern)</td>
+					<td>En este caso, este patrón sirve para aplicar un punto de enlace común para multiples configuración. Supongamos que todas nuestras aplicaciones sin importar la instancia queramos que utilicen el mismo servicio de logging centralizado pero separado por cada instancia y la configuración siempre sería la misma para cada una de las instancias (solamente diferenciariamos por instancia), con lo cual, no tendría sentido para esta arquitectura tener una configuración para cada instancia. Para solucionarlo, este patrón indica que hay que crear un punto de acceso a la configuración que hace frente a todas las instancias (las aplicaciones solicitan la configuración al enlace) y el enlace según la instancia retorna la configuración particular o solo separaría lo que implica la instancia.</td>
+				</tr>
+				<tr>
+					<td>Patrón de delegación a puerta de enlace (Gateway offloading pattern)</td>
+					<td>Este patrón indica que en caso de servicios externos a la aplicación que necesiten una configuración externa a la misma, no sean indicados en la misma configuración particular de la aplicación. Por ejemplo, la configuración de certificados SSL, OAuth, etc. Sino que sean configuraciones externas delegadas a una puerta de enlace común. Esto permite que cada vez que se implementa una aplicación no sea necesario también desplegar la configuración de SSL por ej, sino que solo sea la de la aplicación y la de SSL se despliegue cuando sea necesario cambiarla.</td>
+				</tr>
+				<tr>
+					<td>Patrón sidecar (Sidecar pattern)</td>
+					<td>Se utiliza para desacoplar y separar las configuraciones que requiere la aplicación pero que no es parte de si misma. Los procesos o aplicaciones aplicando el patrón de sidecar por si solas no sirven para nada, sino que dan asistencia y funcionalidad agregada a la aplicación principal que las utiliza, por ejemplo, un servicio de logging. El logging por si solo, no sirve, pero a modo sidecar con otra aplicación, le brinda logging para la aplicación en si. Tener el loggin junto al proceso o aplicación principal, genera acoplamiento con la misma y sobrecarga de procesos. Incluso utilizar el patrón sidecar permite aislar la implementación y el versionado de cada parte.</td>
+				</tr>
+				<tr>
+					<td>Patrón de estrangulamiento (Strangulation pattern)</td>
+					<td>Para el caso de la administración, este patrón nos sirve para administrar la forma que evolucionamos y migramos una aplicación a una nueva.
+					Cuando necesitamos cambiar la arquitectura o la infraestructura a nuevos modelos o servicios, este patrón nos permite ir organizando y administrando los sistemas para llevar de lo antiguo a lo nuevo en pequeñas partes sin impactar en todo el sistema de una sola vez, lo que provocaría seguramente un conflicto unico de muchas configuraciones o despliegues. Implica que hagamos planes de cambio pequeños para en distintas etapas llegar al punto final. Asi minimizamos los riesgos y podemos ir administrando y configurando las pequeñas partes hasta que queden correctas y no todo de un solo paso que implica más pruebas, revisiones, gestión, costo y revisión.</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

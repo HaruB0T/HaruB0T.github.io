@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" type="text/css" href="./css/main.css">
+	<link rel="icon" href=".\img\stupid_wolf.jpg">
+	<title>5.6. SEGURIDAD E INTEROPERABILIDAD</title>
+</head>
+<body>
+	<nav class = "sticky">
+		<input type="checkbox" id = "check">
+		<label for = "check" class = checkbtn>
+			<i class = "fas fa-bars"></i>
+		</label>
+		<label class = "logo-nav"><a href="./index.html" title = "Volver al inicio"> Unidad 5</a></label>
+		<ul>
+			<li><a href="./5_1.html" title="Conceptos generales">5.1</a></li>
+			<li><a href="./5_2.html"  title = "Tipos de servicios en la nube">5.2</a></li>			
+			<li><a href="./5_3.html"  title="Patrones de diseño">5.3</a></li>
+			<li><a href="./5_4.html" title="Estándares en servicios" >5.4</a></li>	
+			<li><a href="./5_5.html" title="Plataformas tecnológicas">5.5</a></li>	
+			<li><a href="./5_6.html" title="Seguridad e interoperabilidad" class="active">5.6</a></li>		
+		</ul>
+	</nav>
+		<br><br><br><br><br><br><br>
+
+	<div class = "contenedor-1">
+		<h2>5.6. SEGURIDAD E INTEROPERABILIDAD</h2>
+
+		<div class="box">
+			<figure>
+				<img src=".\img\5-6.png">
+			</figure>
+		</div>
+
+		<div class = "box">
+			<p>La computación en la nube proporciona capacidades de almacenamiento y procesamiento de información en centros de datos de terceros, por lo tanto, cuando un usuario decide utilizar la nube, pierde la habilidad de tener acceso físico a sus datos; y como resultado, confía en que su proveedor de servicios prestará especial atención a la seguridad de su información. Los controles de seguridad de la información se suelen encontrar en una de las siguientes categorías: </p>
+		</div>
+
+		<div class="box">
+			<ul class = "lista-puntos">
+				<li><b>Controles disuasivos: </b>Su función es reducir los ataques en un sistema en la nube alertando a los posibles atacantes sobré las consecuencias que habrá hacia ellos si continúan con el ataque.</li>
+				<li><b>Controles preventivos: </b>Refuerzan el sistema contra incidentes, generalmente reduciendo o eliminando vulnerabilidades. Suministran autenticaciones fuertes de los usuarios de la nube, reduciendo la posibilidad de accesos no autorizado. </li>
+				<li><b>Controles de detección: </b>Detectan y reaccionan adecuadamente a cualquier incidente que ocurra. Incluyen detección de intrusos y alistamientos de prevención. Son típicamente usados para detectar ataques en el sistema de la nube, y dar soporte a la infraestructura de comunicación. </li>
+				<li><b>Controles correctivos: </b>Reducen las afectaciones por incidentes, normalmente limitando el daño. Su efecto ocurre durante o después de un ataque. Por lo general están diseñados para reconstruir un sistema comprometido después de un ataque mediante copias de respaldo. </li>
+			</ul>
+		</div>
+		<div class="box">
+			<p>
+				Generalmente se recomienda que los controles de seguridad en la nube sean seleccionados e implementados de acuerdo y en proporción a los riesgos, típicamente evaluando las amenazas las vulnerabilidades del entorno y los impactos que dichas amenazas puedan tener sobre el servidor de la nube. Además, los proveedores de servicios y sus usuarios deben protocolos, en donde estipulen cómo deben resolverse los incidentes que involucren pérdida de datos o que comprometan los mismos.
+			</p>
+		</div>
+
+		<div class="box">
+			<h3>CIFRADO DE DATOS EN LA NUBE</h3>
+			<p>La mayoría de proveedores de almacenamiento en la nube emplean algún nivel de encriptación de archivos sea del lado del servidor (para almacenar la información), o del cliente.</p>
+		</div>
+		<div class="box">
+			<figure>
+				<img src=".\img\cifrado.webp">
+			</figure>
+		</div>
+		<div class="box">
+			<p>
+				El <b>cifrado del lado del servidor</b> es el método que utilizan la mayoría de servicios de almacenamiento de archivos en la nube. Se refiere a que la información llega al servidor sin cifrar, y allí es cifrada (normalmente con la contraseña del usuario). La transferencia de los archivos se realiza a través de una conexión segura (HTTPS/SSL).
+			</p>
+		</div>
+		<div class="box" style="">
+			<p>
+				El <b>cifrado del lado del cliente</b> consiste en encriptar los archivos antes de que salgan del dispositivo que se conecta a un servicio en la nube. Lo ideal es que la contraseña nunca salga del cliente, los responsables del servicio en la nube solo almacenarán y sincronizarán datos, cuyo contenido no pueden descifrar. Una de sus <b>ventajas</b> es que la información del usuario es mucho más privada, pues solo en su dispositivo permanece descifrada, y ante cualquier alteración en el servidor o en la transferencia de archivos, solo se obtendrán datos encriptados, y nunca la información original. <b>Como desventaja</b>, tiene la particularidad de que, ante un olvido de su contraseña de seguridad, el usuario nunca tendrá acceso a la misma, además de verse afectada la interacción vía web con los archivos, por encontrarse cifrados en el servidor, y solo serán modificables desde el cliente.
+			</p>
+		</div>
+	</div>
+</body>
+</html>
